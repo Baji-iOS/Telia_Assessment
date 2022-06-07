@@ -20,13 +20,21 @@ class CatBreedsViewModel: NSObject {
 
 extension CatBreedsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catBreedsDataModel.count
+        if isCatBreedSearch == true {
+            return filteredContentList.count
+        } else {
+            return catBreedsDataModel.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catbreedscell")
         let lbl = cell?.contentView.viewWithTag(1) as? UILabel
-        lbl?.text = catBreedsDataModel[indexPath.row].name
+        if isCatBreedSearch == true {
+            lbl?.text = filteredContentList[indexPath.row].name
+        } else {
+            lbl?.text = catBreedsDataModel[indexPath.row].name
+        }
         return cell ?? UITableViewCell()
     }
 }

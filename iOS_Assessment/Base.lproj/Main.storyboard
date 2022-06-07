@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LqG-xB-qQl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="catbreedscell" rowHeight="60" id="t0G-U5-zhW">
@@ -48,6 +48,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Bb9-qn-GOJ"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search Cat Breeds" translatesAutoresizingMaskIntoConstraints="NO" id="yHN-ma-L7y">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="eBj-Tl-PJg"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,8 +62,11 @@
                             <constraint firstAttribute="bottom" secondItem="LqG-xB-qQl" secondAttribute="bottom" id="2vH-tt-gcv"/>
                             <constraint firstItem="LqG-xB-qQl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Df-dZ-PLl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LqG-xB-qQl" secondAttribute="trailing" id="6lY-ey-6v2"/>
-                            <constraint firstItem="LqG-xB-qQl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E1f-js-kvy"/>
+                            <constraint firstItem="LqG-xB-qQl" firstAttribute="top" secondItem="yHN-ma-L7y" secondAttribute="bottom" id="MWr-ie-UJi"/>
+                            <constraint firstItem="yHN-ma-L7y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aT8-6f-77a"/>
                             <constraint firstItem="LqG-xB-qQl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="boW-YT-IAH"/>
+                            <constraint firstItem="yHN-ma-L7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uQr-j6-4Im"/>
+                            <constraint firstItem="yHN-ma-L7y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vgc-lM-Dj0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -66,6 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cat Breeds" id="BLC-vl-cXv"/>
                     <connections>
+                        <outlet property="search_CatBreeds" destination="yHN-ma-L7y" id="V9C-76-iI2"/>
                         <outlet property="tbl_CatBreeds" destination="LqG-xB-qQl" id="gkO-Nb-pCe"/>
                     </connections>
                 </viewController>
