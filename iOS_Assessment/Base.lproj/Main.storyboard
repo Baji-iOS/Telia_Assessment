@@ -74,7 +74,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Cat Breeds" id="BLC-vl-cXv"/>
+                    <navigationItem key="navigationItem" title="Cat Breeds" id="BLC-vl-cXv">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="2Ak-45-SRS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="E5L-Ud-RHQ">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sort"/>
+                                <connections>
+                                    <action selector="btn_SortAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYR-uM-ViN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="search_CatBreeds" destination="yHN-ma-L7y" id="V9C-76-iI2"/>
                         <outlet property="tbl_CatBreeds" destination="LqG-xB-qQl" id="gkO-Nb-pCe"/>

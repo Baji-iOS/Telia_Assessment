@@ -13,6 +13,7 @@ class CatBreedsViewController: UIViewController {
     @IBOutlet weak var tbl_CatBreeds: UITableView!
     
     var isCatBreedSearch = Bool()
+    private var isCatSort = Bool()
     private var array_CatBreedNames = [CatBreedsDataModel]()
     var filteredContentList = [CatBreedsDataModel]()
     
@@ -30,6 +31,35 @@ class CatBreedsViewController: UIViewController {
                 self.tbl_CatBreeds.reloadData()
             }
         }
+    }
+}
+
+// MARK: - Actions
+extension CatBreedsViewController {
+    
+    @IBAction func btn_SortAction(_ sender: UIButton) {
+        sortCatBreeds()
+    }
+    
+    func sortCatBreeds() {
+        if isCatBreedSearch == true {
+            if isCatSort == true {
+                isCatSort = false
+                self.filteredContentList.sort { $0.name ?? "" < $1.name ?? "" }
+            } else {
+                isCatSort = true
+                self.filteredContentList.sort { $0.name ?? "" > $1.name ?? "" }
+            }
+        } else {
+            if isCatSort == true {
+                isCatSort = false
+                self.catBreedsDataModel.sort { $0.name ?? "" < $1.name ?? "" }
+            } else {
+                isCatSort = true
+                self.catBreedsDataModel.sort { $0.name ?? "" > $1.name ?? "" }
+            }
+        }
+        self.tbl_CatBreeds.reloadData()
     }
 }
 
